@@ -1,0 +1,4 @@
+[submodule "ALFI"]
+	path = ALFI
+	url = https://github.com/ALFI-lib/ALFI
+	shallow = true

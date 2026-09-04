@@ -1,0 +1,118 @@
+2026-09-05T00:50:31+03:00
+Running /home/petr/Проекты/ALFI-lib/ALFI-arch-bench/build/riscv64-gcc-O3-openmp/ALFI/benches/bench_barycentric
+Run on (32 X 5763.36 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB (x16)
+  L1 Instruction 32 KiB (x16)
+  L2 Unified 1024 KiB (x16)
+  L3 Unified 98304 KiB (x2)
+Load Average: 1.72, 1.31, 1.12
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+----------------------------------------------------------------------------------------------------------------------
+Benchmark                                                            Time             CPU   Iterations UserCounters...
+----------------------------------------------------------------------------------------------------------------------
+BM_barycentric/func:0/dist:0/n:8/nn:10000                       412399 ns       404890 ns         1698 1.ME=846.043u 2.MAE=1.32469m 3.RMSE=2.26732m 4.Variance=4.42539u
+BM_barycentric/func:1/dist:0/n:8/nn:10000                       690145 ns       616832 ns         1000 1.ME=-235.326z 2.MAE=327.897u 3.RMSE=603.688u 4.Variance=364.476n
+BM_barycentric/func:2/dist:0/n:8/nn:10000                       628993 ns       584918 ns         1000 1.ME=713.831u 2.MAE=1.16765m 3.RMSE=1.87202m 4.Variance=2.99519u
+BM_barycentric/func:3/dist:0/n:8/nn:10000                       608628 ns       607413 ns         1000 1.ME=-2.31458m 2.MAE=0.0206072 3.RMSE=0.0268341 4.Variance=714.784u
+BM_barycentric/func:4/dist:0/n:8/nn:10000                       606722 ns       586483 ns         1779 1.ME=-0.94612 2.MAE=6.32076 3.RMSE=8.85616 4.Variance=77.5443
+BM_barycentric/func:0/dist:1/n:8/nn:10000                       965535 ns       934030 ns         1342 1.ME=27.2135u 2.MAE=1.0168m 3.RMSE=1.15011m 4.Variance=1.32214u
+BM_barycentric/func:1/dist:1/n:8/nn:10000                       460337 ns       458250 ns         1799 1.ME=-1.07347a 2.MAE=161.284u 3.RMSE=205.939u 4.Variance=42.4151n
+BM_barycentric/func:2/dist:1/n:8/nn:10000                       631579 ns       629494 ns         1000 1.ME=20.4647u 2.MAE=901.276u 3.RMSE=1.00228m 4.Variance=1.00425u
+BM_barycentric/func:3/dist:1/n:8/nn:10000                       950597 ns       936720 ns         1541 1.ME=6.47368m 2.MAE=0.0172065 3.RMSE=0.0300548 4.Variance=861.468u
+BM_barycentric/func:4/dist:1/n:8/nn:10000                       528021 ns       504012 ns         1532 1.ME=1.62109 2.MAE=5.03805 3.RMSE=6.72778 4.Variance=42.6394
+BM_barycentric/func:0/dist:2/n:8/nn:10000                       563742 ns       545091 ns         1013 1.ME=-23.0675u 2.MAE=1.62724m 3.RMSE=1.88981m 4.Variance=3.57121u
+BM_barycentric/func:1/dist:2/n:8/nn:10000                       405644 ns       399230 ns         1866 1.ME=-13.597a 2.MAE=211.934u 3.RMSE=259.819u 4.Variance=67.5129n
+BM_barycentric/func:2/dist:2/n:8/nn:10000                       530093 ns       513698 ns         1891 1.ME=-15.6694u 2.MAE=1.3921m 3.RMSE=1.61713m 4.Variance=2.61513u
+BM_barycentric/func:3/dist:2/n:8/nn:10000                       399930 ns       399850 ns         1578 1.ME=8.62601m 2.MAE=0.0196259 3.RMSE=0.035242 4.Variance=1.16771m
+BM_barycentric/func:4/dist:2/n:8/nn:10000                       488797 ns       464935 ns         1165 1.ME=0.211915 2.MAE=4.30648 3.RMSE=5.62082 4.Variance=31.5518
+BM_barycentric/func:0/dist:0/n:16/nn:10000                      989467 ns       973727 ns         1264 1.ME=206.642p 2.MAE=251.228p 3.RMSE=736.182p 4.Variance=499.313z
+BM_barycentric/func:1/dist:0/n:16/nn:10000                     1654573 ns      1652609 ns          635 1.ME=-161.696a 2.MAE=72.0019p 3.RMSE=213.085p 4.Variance=45.4098z
+BM_barycentric/func:2/dist:0/n:16/nn:10000                     1496352 ns      1472074 ns         1214 1.ME=338.853p 2.MAE=413.266p 3.RMSE=1.19158n 4.Variance=1.30518a
+BM_barycentric/func:3/dist:0/n:16/nn:10000                      769641 ns       756395 ns         1140 1.ME=-0.0330505 2.MAE=0.0468298 3.RMSE=0.121107 4.Variance=0.013576
+BM_barycentric/func:4/dist:0/n:16/nn:10000                      689070 ns       685162 ns          942 1.ME=-11.2634 2.MAE=16.4239 3.RMSE=49.5045 4.Variance=2.32406k
+BM_barycentric/func:0/dist:1/n:16/nn:10000                      774285 ns       773520 ns         1344 1.ME=277.832f 2.MAE=45.3592p 3.RMSE=50.6466p 4.Variance=2.56526z
+BM_barycentric/func:1/dist:1/n:16/nn:10000                      838282 ns       837983 ns          821 1.ME=4.06931a 2.MAE=6.76562p 3.RMSE=8.66165p 4.Variance=75.0317y
+BM_barycentric/func:2/dist:1/n:16/nn:10000                     1704024 ns      1692720 ns          391 1.ME=426.236f 2.MAE=72.6169p 3.RMSE=80.6719p 4.Variance=6.50843z
+BM_barycentric/func:3/dist:1/n:16/nn:10000                     1344154 ns      1242470 ns         1011 1.ME=1.61124m 2.MAE=4.50428m 3.RMSE=0.0103992 4.Variance=105.558u
+BM_barycentric/func:4/dist:1/n:16/nn:10000                      954781 ns       899805 ns          720 1.ME=0.203185 2.MAE=2.78234 3.RMSE=3.54056 4.Variance=12.4955
+BM_barycentric/func:0/dist:2/n:16/nn:10000                      880988 ns       857493 ns         1332 1.ME=-88.4319f 2.MAE=71.6304p 3.RMSE=82.8497p 4.Variance=6.86476z
+BM_barycentric/func:1/dist:2/n:16/nn:10000                      691747 ns       691494 ns          881 1.ME=-5.6651a 2.MAE=8.98163p 3.RMSE=10.9433p 4.Variance=119.767y
+BM_barycentric/func:2/dist:2/n:16/nn:10000                     1214081 ns      1163100 ns         1275 1.ME=-133.39f 2.MAE=113.5p 3.RMSE=131.281p 4.Variance=17.2365z
+BM_barycentric/func:3/dist:2/n:16/nn:10000                      794392 ns       757601 ns          970 1.ME=1.83732m 2.MAE=4.83998m 3.RMSE=0.0113351 4.Variance=125.122u
+BM_barycentric/func:4/dist:2/n:16/nn:10000                      714949 ns       712721 ns          980 1.ME=0.240661 2.MAE=2.96828 3.RMSE=3.87597 4.Variance=14.9667
+BM_barycentric/func:0/dist:0/n:32/nn:10000                     1195439 ns      1192708 ns          546 1.ME=38.6701p 2.MAE=56.7386p 3.RMSE=426.155p 4.Variance=180.13z
+BM_barycentric/func:1/dist:0/n:32/nn:10000                     1155011 ns      1153504 ns          565 1.ME=-8.64068p 2.MAE=11.1026p 3.RMSE=64.5719p 4.Variance=4.09528z
+BM_barycentric/func:2/dist:0/n:32/nn:10000                     2339390 ns      2324514 ns          303 1.ME=6.23932p 2.MAE=12.2072p 3.RMSE=69.3334p 4.Variance=4.76867z
+BM_barycentric/func:3/dist:0/n:32/nn:10000                     3724602 ns      3283336 ns          187 1.ME=-61.593 2.MAE=68.2112 3.RMSE=307.196 4.Variance=90.5849k
+BM_barycentric/func:4/dist:0/n:32/nn:10000                     6465786 ns      5585974 ns          100 1.ME=-7.41463k 2.MAE=8.21239k 3.RMSE=36.9806k 4.Variance=1.31272G
+BM_barycentric/func:0/dist:1/n:32/nn:10000                     2989489 ns      2802611 ns          296 1.ME=114.773a 2.MAE=626.504a 3.RMSE=1.14503f 4.Variance=1.29804e-30
+BM_barycentric/func:1/dist:1/n:32/nn:10000                     1672475 ns      1671118 ns          548 1.ME=-3.91006a 2.MAE=146.653a 3.RMSE=207.516a 4.Variance=4.30519e-32
+BM_barycentric/func:2/dist:1/n:32/nn:10000                     2181055 ns      2042869 ns          640 1.ME=-4.47057a 2.MAE=140.705a 3.RMSE=199.93a 4.Variance=3.99559e-32
+BM_barycentric/func:3/dist:1/n:32/nn:10000                     1684591 ns      1657408 ns          307 1.ME=401.94u 2.MAE=1.1613m 3.RMSE=3.65619m 4.Variance=13.2075u
+BM_barycentric/func:4/dist:1/n:32/nn:10000                     1180353 ns      1126407 ns          543 1.ME=0.0422936 2.MAE=2.50384 3.RMSE=3.15103 4.Variance=9.92822
+BM_barycentric/func:0/dist:2/n:32/nn:10000                     1970779 ns      1711909 ns          470 1.ME=-11.4277a 2.MAE=717.159a 3.RMSE=1.18667f 4.Variance=1.4082e-30
+BM_barycentric/func:1/dist:2/n:32/nn:10000                     2353502 ns      2277349 ns          274 1.ME=-1.12225a 2.MAE=138.261a 3.RMSE=196.47a 4.Variance=3.8603e-32
+BM_barycentric/func:2/dist:2/n:32/nn:10000                     1248574 ns      1246166 ns          566 1.ME=-6.32347a 2.MAE=141.286a 3.RMSE=202.426a 4.Variance=4.09402e-32
+BM_barycentric/func:3/dist:2/n:32/nn:10000                     1577322 ns      1549297 ns          571 1.ME=428.397u 2.MAE=1.20598m 3.RMSE=3.82415m 4.Variance=14.4421u
+BM_barycentric/func:4/dist:2/n:32/nn:10000                     1465178 ns      1443664 ns          376 1.ME=0.045238 2.MAE=2.14434 3.RMSE=2.66477 4.Variance=7.09966
+BM_barycentric_chebyshev/func:0/dist:1/n:64/nn:10000           2694278 ns      2689807 ns          193 1.ME=-6.15619a 2.MAE=682.109a 3.RMSE=1.36809f 4.Variance=1.87182e-30
+BM_barycentric_chebyshev/func:1/dist:1/n:64/nn:10000           2067623 ns      2062191 ns          332 1.ME=-3.24076a 2.MAE=190.522a 3.RMSE=273.43a 4.Variance=7.47611e-32
+BM_barycentric_chebyshev/func:2/dist:1/n:64/nn:10000           2691362 ns      2590364 ns          291 1.ME=7.44373a 2.MAE=189.058a 3.RMSE=275.537a 4.Variance=7.58729e-32
+BM_barycentric_chebyshev/func:3/dist:1/n:64/nn:10000           2236406 ns      2172347 ns          339 1.ME=100.414u 2.MAE=295.468u 3.RMSE=1.2908m 4.Variance=1.65626u
+BM_barycentric_chebyshev/func:4/dist:1/n:64/nn:10000           2688996 ns      2666719 ns          352 1.ME=0.0101668 2.MAE=2.039 3.RMSE=2.63366 4.Variance=6.93676
+BM_barycentric_chebyshev/func:0/dist:1/n:512/nn:10000         15324979 ns     15254675 ns           42 1.ME=-9.71306a 2.MAE=1.88898f 3.RMSE=3.63988f 4.Variance=1.325e-29
+BM_barycentric_chebyshev/func:1/dist:1/n:512/nn:10000         19340860 ns     17862871 ns           36 1.ME=11.257a 2.MAE=532.038a 3.RMSE=766.099a 4.Variance=5.86839e-31
+BM_barycentric_chebyshev/func:2/dist:1/n:512/nn:10000         19873806 ns     18616814 ns           42 1.ME=-8.34433a 2.MAE=521.753a 3.RMSE=761.712a 4.Variance=5.80194e-31
+BM_barycentric_chebyshev/func:3/dist:1/n:512/nn:10000         18324915 ns     16080251 ns           34 1.ME=1.56692u 2.MAE=4.69232u 3.RMSE=56.9629u 4.Variance=3.24264n
+BM_barycentric_chebyshev/func:4/dist:1/n:512/nn:10000         18308973 ns     16522364 ns           45 1.ME=156.722u 2.MAE=469.553u 3.RMSE=5.69859m 4.Variance=32.4527u
+BM_barycentric_chebyshev/func:0/dist:1/n:4096/nn:10000       109712737 ns    100151380 ns            7 1.ME=-36.2634a 2.MAE=5.16308f 3.RMSE=9.75969f 4.Variance=9.52597e-29
+BM_barycentric_chebyshev/func:1/dist:1/n:4096/nn:10000       117138045 ns     95315807 ns            7 1.ME=13.2481a 2.MAE=1.50029f 3.RMSE=2.17048f 4.Variance=4.71126e-30
+BM_barycentric_chebyshev/func:2/dist:1/n:4096/nn:10000       117794548 ns     97467987 ns            7 1.ME=20.3798a 2.MAE=1.4676f 3.RMSE=2.1341f 4.Variance=4.55444e-30
+BM_barycentric_chebyshev/func:3/dist:1/n:4096/nn:10000       114529508 ns    101659070 ns            7 1.ME=22.8421n 2.MAE=72.5785n 3.RMSE=2.35786u 4.Variance=5.55955p
+BM_barycentric_chebyshev/func:4/dist:1/n:4096/nn:10000       115663358 ns     92181538 ns            7 1.ME=2.28422u 2.MAE=7.25793u 3.RMSE=235.788u 4.Variance=55.5963n
+BM_barycentric_chebyshev/func:0/dist:1/n:32768/nn:10000      801856518 ns    731601976 ns            1 1.ME=33.621a 2.MAE=14.8506f 3.RMSE=28.271f 4.Variance=7.99329e-28
+BM_barycentric_chebyshev/func:1/dist:1/n:32768/nn:10000      839603901 ns    695225483 ns            1 1.ME=-10.8207a 2.MAE=4.19517f 3.RMSE=6.0521f 4.Variance=3.66315e-29
+BM_barycentric_chebyshev/func:2/dist:1/n:32768/nn:10000      859916925 ns    731683177 ns            1 1.ME=-21.0114a 2.MAE=4.1709f 3.RMSE=6.02319f 4.Variance=3.6282e-29
+BM_barycentric_chebyshev/func:3/dist:1/n:32768/nn:10000      772410631 ns    728019103 ns            1 1.ME=-984.287p 2.MAE=1.03842n 3.RMSE=58.0592n 4.Variance=3.37024f
+BM_barycentric_chebyshev/func:4/dist:1/n:32768/nn:10000      833104372 ns    750799055 ns            1 1.ME=-98.4287n 2.MAE=103.842n 3.RMSE=5.80593u 4.Variance=33.7025p
+BM_barycentric_chebyshev/func:0/dist:1/n:262144/nn:10000    6203127384 ns   5897530261 ns            1 1.ME=-200.189a 2.MAE=42.1881f 3.RMSE=80.4939f 4.Variance=6.47988e-27
+BM_barycentric_chebyshev/func:1/dist:1/n:262144/nn:10000    6221818686 ns   5711566658 ns            1 1.ME=-7.6019a 2.MAE=11.9827f 3.RMSE=17.247f 4.Variance=2.97488e-28
+BM_barycentric_chebyshev/func:2/dist:1/n:262144/nn:10000    6213131905 ns   5925311228 ns            1 1.ME=-257.781a 2.MAE=11.7083f 3.RMSE=17.0033f 4.Variance=2.89075e-28
+BM_barycentric_chebyshev/func:3/dist:1/n:262144/nn:10000    6188502073 ns   5804750797 ns            1 1.ME=1.02506p 2.MAE=1.76642p 3.RMSE=91.7002p 4.Variance=8.40872z
+BM_barycentric_chebyshev/func:4/dist:1/n:262144/nn:10000    6293047905 ns   5803150561 ns            1 1.ME=102.504p 2.MAE=176.311p 3.RMSE=9.17002n 4.Variance=84.0872a
+BM_barycentric_chebyshev/func:0/dist:1/n:2097152/nn:10000   4.9200e+10 ns   4.6365e+10 ns            1 1.ME=-4.47875f 2.MAE=119.919f 3.RMSE=228.302f 4.Variance=5.21068e-26
+BM_barycentric_chebyshev/func:1/dist:1/n:2097152/nn:10000   4.9455e+10 ns   4.7243e+10 ns            1 1.ME=325.055a 2.MAE=33.5846f 3.RMSE=48.1441f 4.Variance=2.31798e-27
+BM_barycentric_chebyshev/func:2/dist:1/n:2097152/nn:10000   4.8928e+10 ns   4.6269e+10 ns            1 1.ME=543.937a 2.MAE=32.9283f 3.RMSE=48.5141f 4.Variance=2.35356e-27
+BM_barycentric_chebyshev/func:3/dist:1/n:2097152/nn:10000   4.9150e+10 ns   4.6141e+10 ns            1 1.ME=-3.458f 2.MAE=17.9211f 3.RMSE=278.92f 4.Variance=7.7792e-26
+BM_barycentric_chebyshev/func:4/dist:1/n:2097152/nn:10000   4.8952e+10 ns   4.6289e+10 ns            1 1.ME=-348.612f 2.MAE=817.186f 3.RMSE=27.8208p 4.Variance=773.953y
+BM_barycentric_chebyshev_2/func:0/dist:2/n:64/nn:10000         4045501 ns      3938010 ns          235 1.ME=89.7976a 2.MAE=709.925a 3.RMSE=1.4242f 4.Variance=2.02048e-30
+BM_barycentric_chebyshev_2/func:1/dist:2/n:64/nn:10000         7193093 ns      5607044 ns          113 1.ME=-2.4852a 2.MAE=189.766a 3.RMSE=270.514a 4.Variance=7.31789e-32
+BM_barycentric_chebyshev_2/func:2/dist:2/n:64/nn:10000         5580076 ns      5059877 ns          127 1.ME=3.73238a 2.MAE=184.93a 3.RMSE=268.324a 4.Variance=7.19913e-32
+BM_barycentric_chebyshev_2/func:3/dist:2/n:64/nn:10000         5949261 ns      5606232 ns          100 1.ME=103.629u 2.MAE=301.246u 3.RMSE=1.32076m 4.Variance=1.73383u
+BM_barycentric_chebyshev_2/func:4/dist:2/n:64/nn:10000         6128452 ns      5425110 ns          162 1.ME=0.0104965 2.MAE=1.94437 3.RMSE=2.65108 4.Variance=7.02881
+BM_barycentric_chebyshev_2/func:0/dist:2/n:512/nn:10000       26300117 ns     21594032 ns           32 1.ME=41.5196a 2.MAE=1.84423f 3.RMSE=3.5692f 4.Variance=1.27388e-29
+BM_barycentric_chebyshev_2/func:1/dist:2/n:512/nn:10000       23649301 ns     21384263 ns           42 1.ME=12.7058a 2.MAE=516.779a 3.RMSE=738.362a 4.Variance=5.45072e-31
+BM_barycentric_chebyshev_2/func:2/dist:2/n:512/nn:10000       16607979 ns     15713190 ns           45 1.ME=-2.38803a 2.MAE=522.262a 3.RMSE=763.745a 4.Variance=5.8336e-31
+BM_barycentric_chebyshev_2/func:3/dist:2/n:512/nn:10000       17940294 ns     16383593 ns           42 1.ME=1.57306u 2.MAE=4.7037u 3.RMSE=57.1298u 4.Variance=3.26166n
+BM_barycentric_chebyshev_2/func:4/dist:2/n:512/nn:10000       18311233 ns     17465733 ns           41 1.ME=157.336u 2.MAE=470.693u 3.RMSE=5.7153m 4.Variance=32.6432u
+BM_barycentric_chebyshev_2/func:0/dist:2/n:4096/nn:10000     118136508 ns    100474631 ns            7 1.ME=-158.994a 2.MAE=5.19561f 3.RMSE=9.83324f 4.Variance=9.6677e-29
+BM_barycentric_chebyshev_2/func:1/dist:2/n:4096/nn:10000     118919952 ns    103468355 ns            7 1.ME=-13.2579a 2.MAE=1.4777f 3.RMSE=2.10548f 4.Variance=4.43333e-30
+BM_barycentric_chebyshev_2/func:2/dist:2/n:4096/nn:10000     108155830 ns    100613716 ns            7 1.ME=-15.4318a 2.MAE=1.44052f 3.RMSE=2.09381f 4.Variance=4.38425e-30
+BM_barycentric_chebyshev_2/func:3/dist:2/n:4096/nn:10000     109119722 ns    100840018 ns            7 1.ME=22.8541n 2.MAE=72.6038n 3.RMSE=2.35881u 4.Variance=5.564p
+BM_barycentric_chebyshev_2/func:4/dist:2/n:4096/nn:10000     112038195 ns    101630677 ns            8 1.ME=2.28542u 2.MAE=7.26046u 3.RMSE=235.882u 4.Variance=55.6407n
+BM_barycentric_chebyshev_2/func:0/dist:2/n:32768/nn:10000    789247274 ns    732545416 ns            1 1.ME=-817.402z 2.MAE=14.8454f 3.RMSE=28.4558f 4.Variance=8.09811e-28
+BM_barycentric_chebyshev_2/func:1/dist:2/n:32768/nn:10000    777221680 ns    726415382 ns            1 1.ME=30.6523a 2.MAE=4.10013f 3.RMSE=5.85324f 4.Variance=3.42629e-29
+BM_barycentric_chebyshev_2/func:2/dist:2/n:32768/nn:10000    783898830 ns    758403892 ns            1 1.ME=-81.9261a 2.MAE=4.15554f 3.RMSE=6.0462f 4.Variance=3.65535e-29
+BM_barycentric_chebyshev_2/func:3/dist:2/n:32768/nn:10000    790882826 ns    760103767 ns            1 1.ME=-984.458p 2.MAE=1.03853n 3.RMSE=58.0644n 4.Variance=3.37085f
+BM_barycentric_chebyshev_2/func:4/dist:2/n:32768/nn:10000    801750422 ns    731447605 ns            1 1.ME=-98.4458n 2.MAE=103.853n 3.RMSE=5.80645u 4.Variance=33.7085p
+BM_barycentric_chebyshev_2/func:0/dist:2/n:262144/nn:10000  6142642736 ns   5755121380 ns            1 1.ME=-581.68a 2.MAE=42.781f 3.RMSE=82.6243f 4.Variance=6.82711e-27
+BM_barycentric_chebyshev_2/func:1/dist:2/n:262144/nn:10000  6131165504 ns   5747418398 ns            1 1.ME=-50.3624a 2.MAE=11.5749f 3.RMSE=16.5474f 4.Variance=2.73842e-28
+BM_barycentric_chebyshev_2/func:2/dist:2/n:262144/nn:10000  6086813688 ns   5762221386 ns            1 1.ME=-78.628a 2.MAE=11.7019f 3.RMSE=17.1743f 4.Variance=2.94979e-28
+BM_barycentric_chebyshev_2/func:3/dist:2/n:262144/nn:10000  6099878788 ns   5977655618 ns            1 1.ME=1.02507p 2.MAE=1.76651p 3.RMSE=91.7176p 4.Variance=8.41191z
+BM_barycentric_chebyshev_2/func:4/dist:2/n:262144/nn:10000  6181974173 ns   5679429325 ns            1 1.ME=102.526p 2.MAE=176.339p 3.RMSE=9.17176n 4.Variance=84.1191a
+BM_barycentric_chebyshev_2/func:0/dist:2/n:2097152/nn:10000 4.9412e+10 ns   4.6006e+10 ns            1 1.ME=803.41a 2.MAE=117.729f 3.RMSE=225.011f 4.Variance=5.06343e-26
+BM_barycentric_chebyshev_2/func:1/dist:2/n:2097152/nn:10000 4.9251e+10 ns   4.5987e+10 ns            1 1.ME=-332.126a 2.MAE=33.2562f 3.RMSE=47.8164f 4.Variance=2.28652e-27
+BM_barycentric_chebyshev_2/func:2/dist:2/n:2097152/nn:10000 4.9224e+10 ns   4.6357e+10 ns            1 1.ME=-191.938a 2.MAE=32.9623f 3.RMSE=48.1028f 4.Variance=2.31408e-27
+BM_barycentric_chebyshev_2/func:3/dist:2/n:2097152/nn:10000 4.9301e+10 ns   4.7037e+10 ns            1 1.ME=-3.5768f 2.MAE=17.4313f 3.RMSE=278.841f 4.Variance=7.77476e-26
+BM_barycentric_chebyshev_2/func:4/dist:2/n:2097152/nn:10000 4.9664e+10 ns   4.5801e+10 ns            1 1.ME=-346.983f 2.MAE=820.498f 3.RMSE=27.8183p 4.Variance=773.816y

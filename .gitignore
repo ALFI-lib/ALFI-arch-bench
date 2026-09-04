@@ -1,0 +1,7 @@
+/build/
+/cmake-*/
+
+/docs/doxygen/html/
+
+/.vscode/*
+!/.vscode/settings.json

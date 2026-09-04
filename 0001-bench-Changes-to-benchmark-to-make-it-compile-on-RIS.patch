@@ -1,0 +1,31 @@
+From 5d4d82b2e127c5ab5a362e0d96037e9cbf852384 Mon Sep 17 00:00:00 2001
+From: Petr Sabanov <pasabanov@murena.io>
+Date: Sat, 5 Sep 2026 02:10:41 +0300
+Subject: [PATCH] bench: Changes to benchmark to make it compile on RISC-V and
+ with Clang
+
+---
+ benches/CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/benches/CMakeLists.txt b/benches/CMakeLists.txt
+index b90ca38..b755e64 100644
+--- a/benches/CMakeLists.txt
++++ b/benches/CMakeLists.txt
+@@ -10,9 +10,12 @@ ExternalProject_Add(benchmark
+ 	CMAKE_ARGS
+ 		-DCMAKE_BUILD_TYPE=Release
+ 		"-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}"
++		"-DCMAKE_CXX_COMPILER_TARGET=${CMAKE_CXX_COMPILER_TARGET}"
++		"-DCMAKE_CXX_FLAGS=${CMAKE_CXX_FLAGS}"
+ 		-DBENCHMARK_ENABLE_INSTALL=OFF
+ 		-DBENCHMARK_ENABLE_TESTING=OFF
+-		-DBENCHMARK_ENABLE_LTO=ON
++		-DBENCHMARK_ENABLE_LTO=OFF
++		-DHAVE_STD_REGEX=TRUE
+ 	INSTALL_COMMAND ""
+ )
+ 
+-- 
+2.55.0
+

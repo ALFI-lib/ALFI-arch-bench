@@ -1,0 +1,126 @@
+From 7535baa768a49192db32aadff19c61c6b5401de3 Mon Sep 17 00:00:00 2001
+From: Petr Sabanov <pasabanov@murena.io>
+Date: Sun, 6 Sep 2026 00:29:22 +0300
+Subject: [PATCH] Changed bench_barycentric and added bench_hermite
+
+---
+ benches/CMakeLists.txt             |  3 +-
+ benches/misc/bench_barycentric.cpp |  4 +-
+ benches/spline/bench_hermite.cpp   | 69 ++++++++++++++++++++++++++++++
+ 3 files changed, 73 insertions(+), 3 deletions(-)
+ create mode 100644 benches/spline/bench_hermite.cpp
+
+diff --git a/benches/CMakeLists.txt b/benches/CMakeLists.txt
+index b755e64..9924006 100644
+--- a/benches/CMakeLists.txt
++++ b/benches/CMakeLists.txt
+@@ -42,4 +42,5 @@ add_bench_executable(bench_polyeqv spline/bench_polyeqv.cpp)
+ add_bench_executable(bench_step spline/bench_step.cpp)
+ add_bench_executable(bench_linear spline/bench_linear.cpp)
+ add_bench_executable(bench_quadratic spline/bench_quadratic.cpp)
+-add_bench_executable(bench_cubic spline/bench_cubic.cpp)
+\ No newline at end of file
++add_bench_executable(bench_cubic spline/bench_cubic.cpp)
++add_bench_executable(bench_hermite spline/bench_hermite.cpp)
+\ No newline at end of file
+diff --git a/benches/misc/bench_barycentric.cpp b/benches/misc/bench_barycentric.cpp
+index d428768..6dbdfcc 100644
+--- a/benches/misc/bench_barycentric.cpp
++++ b/benches/misc/bench_barycentric.cpp
+@@ -38,7 +38,7 @@ BENCHMARK(BM_barycentric)
+ 	->ArgsProduct({
+ 		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
+ 		{1},
+-		benchmark::CreateRange(1 << 6, 1 << 21, 1 << 3),
++		{1024, 16384, 262144},
+ 		{nn},
+ 	})
+ 	->ArgNames({"func", "dist", "n", "nn"});
+@@ -48,7 +48,7 @@ BENCHMARK(BM_barycentric)
+ 	->ArgsProduct({
+ 		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
+ 		{2},
+-		benchmark::CreateRange(1 << 6, 1 << 21, 1 << 3),
++		{1024, 16384, 262144},
+ 		{nn},
+ 	})
+ 	->ArgNames({"func", "dist", "n", "nn"});
+diff --git a/benches/spline/bench_hermite.cpp b/benches/spline/bench_hermite.cpp
+new file mode 100644
+index 0000000..c52ca27
+--- /dev/null
++++ b/benches/spline/bench_hermite.cpp
+@@ -0,0 +1,69 @@
++#include <benchmark/benchmark.h>
++
++#include <ALFI/spline/hermite.h>
++
++#include "../bench_utils.h"
++#include "../bench_data.h"
++
++const std::vector<alfi::spline::HermiteSpline<>::Type> hermite_spline_types = {
++	alfi::spline::HermiteSpline<>::Types::Classic{},
++	alfi::spline::HermiteSpline<>::Types::Cardinal{0.1},
++	alfi::spline::HermiteSpline<>::Types::Akima{},
++	alfi::spline::HermiteSpline<>::Types::ModifiedAkima{},
++	alfi::spline::HermiteSpline<>::Types::Steffen{},
++};
++
++static void BM_hermite_spline(benchmark::State& state) {
++	const auto& [func_name, lambda] = funcs_and_ints[state.range(0)].first;
++	const auto& interval = funcs_and_ints[state.range(0)].second;
++	const auto& dist_type = dists[state.range(1)];
++	const auto& n = state.range(2);
++	const auto& type = hermite_spline_types[state.range(3)];
++	const std::vector<double> X = of_type<double>(dist_type, n, interval.first, interval.second);
++	const std::vector<double> Y = apply_func(X, lambda);
++	alfi::spline::HermiteSpline<> spline;
++	for (auto _ : state) {
++		spline = alfi::spline::HermiteSpline<>(X, Y, type);
++		benchmark::DoNotOptimize(spline);
++		benchmark::ClobberMemory();
++	}
++}
++BENCHMARK(BM_hermite_spline)
++	->ArgsProduct({
++		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
++		benchmark::CreateDenseRange(0, static_cast<int64_t>(dists.size()) - 1, 1),
++		{32, 1024, 16384, 262144},
++		benchmark::CreateDenseRange(0, static_cast<int64_t>(hermite_spline_types.size()) - 1, 1),
++	})
++	->ArgNames({"func", "dist", "n", "type"});
++
++static void BM_hermite_spline_values(benchmark::State& state) {
++	const auto& [func_name, lambda] = funcs_and_ints[state.range(0)].first;
++	const auto& interval = funcs_and_ints[state.range(0)].second;
++	const auto& dist_type = dists[state.range(1)];
++	const auto& n = state.range(2);
++	const auto& nn = state.range(3);
++	const auto& type = hermite_spline_types[state.range(4)];
++	const std::vector<double> X = of_type<double>(dist_type, n, interval.first, interval.second);
++	const std::vector<double> Y = apply_func(X, lambda);
++	const std::vector<double> xx = of_type<double>(alfi::dist::Type::UNIFORM, nn, interval.first, interval.second);
++	const alfi::spline::HermiteSpline<> spline(X, Y, type);
++	std::vector<double> result;
++	for (auto _ : state) {
++		result = spline.eval(xx);
++		benchmark::DoNotOptimize(result);
++		benchmark::ClobberMemory();
++	}
++	const std::vector<double> expected = apply_func(xx, lambda);
++	add_error_metrics(state, result, expected);
++}
++BENCHMARK(BM_hermite_spline_values)
++	->ArgsProduct({
++		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
++		benchmark::CreateDenseRange(0, static_cast<int64_t>(dists.size()) - 1, 1),
++		{32, 1024, 16384, 262144},
++		{nn},
++	})
++	->ArgNames({"func", "dist", "n", "nn"});
++
++BENCHMARK_MAIN();
+\ No newline at end of file
+-- 
+2.55.0
+

@@ -1,0 +1,111 @@
+From 6da4570d2a0f4fcbc442cd59d1062c81f72fae94 Mon Sep 17 00:00:00 2001
+From: Petr Sabanov <pasabanov@murena.io>
+Date: Sun, 6 Sep 2026 02:44:02 +0300
+Subject: [PATCH] Tweaked benchmarks
+
+---
+ benches/bench_data.h               |  2 --
+ benches/misc/bench_barycentric.cpp | 25 +++----------------------
+ benches/spline/bench_hermite.cpp   | 18 +++++++++---------
+ 3 files changed, 12 insertions(+), 33 deletions(-)
+
+diff --git a/benches/bench_data.h b/benches/bench_data.h
+index 7e950e9..cc6f220 100644
+--- a/benches/bench_data.h
++++ b/benches/bench_data.h
+@@ -21,9 +21,7 @@ using Interval = std::pair<double, double>;
+ 	- Interval: range (`std::pair<double, double>`).
+ */
+ const std::vector<std::pair<Function, Interval>> funcs_and_ints = {
+-	{{"exp", [](double x) { return std::exp(x); }}, {-3, 3}},
+ 	{{"sin", [](double x) { return std::sin(x); }}, {-M_PI, M_PI}},
+-	{{"cos", [](double x) { return std::cos(x); }}, {-M_PI, M_PI}},
+ 	{{"f1", [](double x) { return std::abs(x) + x/2 - x*x; }}, {-1, 1}},
+ 	{{"f2", [](double x) { return -3*std::sin(10*x) + 10*std::sin(std::abs(x) + x/2); }}, {-10, 10}},
+ };
+diff --git a/benches/misc/bench_barycentric.cpp b/benches/misc/bench_barycentric.cpp
+index 6dbdfcc..5eb9d41 100644
+--- a/benches/misc/bench_barycentric.cpp
++++ b/benches/misc/bench_barycentric.cpp
+@@ -25,30 +25,11 @@ static void BM_barycentric(benchmark::State& state) {
+ }
+ 
+ BENCHMARK(BM_barycentric)
++	->Name("BM_barycentric")
+ 	->ArgsProduct({
+-		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
+-		benchmark::CreateDenseRange(0, static_cast<int64_t>(dists.size()) - 1, 1),
+-		benchmark::CreateRange(8, 32, 2),
+-		{nn},
+-	})
+-	->ArgNames({"func", "dist", "n", "nn"});
+-
+-BENCHMARK(BM_barycentric)
+-	->Name("BM_barycentric_chebyshev")
+-	->ArgsProduct({
+-		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
++		{0},
+ 		{1},
+-		{1024, 16384, 262144},
+-		{nn},
+-	})
+-	->ArgNames({"func", "dist", "n", "nn"});
+-
+-BENCHMARK(BM_barycentric)
+-	->Name("BM_barycentric_chebyshev_2")
+-	->ArgsProduct({
+-		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
+-		{2},
+-		{1024, 16384, 262144},
++		benchmark::CreateRange(1 << 5, 1 << 15, 2),
+ 		{nn},
+ 	})
+ 	->ArgNames({"func", "dist", "n", "nn"});
+diff --git a/benches/spline/bench_hermite.cpp b/benches/spline/bench_hermite.cpp
+index c52ca27..4310087 100644
+--- a/benches/spline/bench_hermite.cpp
++++ b/benches/spline/bench_hermite.cpp
+@@ -17,8 +17,8 @@ static void BM_hermite_spline(benchmark::State& state) {
+ 	const auto& [func_name, lambda] = funcs_and_ints[state.range(0)].first;
+ 	const auto& interval = funcs_and_ints[state.range(0)].second;
+ 	const auto& dist_type = dists[state.range(1)];
+-	const auto& n = state.range(2);
+-	const auto& type = hermite_spline_types[state.range(3)];
++	const auto& type = hermite_spline_types[state.range(2)];
++	const auto& n = state.range(3);
+ 	const std::vector<double> X = of_type<double>(dist_type, n, interval.first, interval.second);
+ 	const std::vector<double> Y = apply_func(X, lambda);
+ 	alfi::spline::HermiteSpline<> spline;
+@@ -30,12 +30,12 @@ static void BM_hermite_spline(benchmark::State& state) {
+ }
+ BENCHMARK(BM_hermite_spline)
+ 	->ArgsProduct({
+-		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
+-		benchmark::CreateDenseRange(0, static_cast<int64_t>(dists.size()) - 1, 1),
+-		{32, 1024, 16384, 262144},
++		{0},
++		{1},
+ 		benchmark::CreateDenseRange(0, static_cast<int64_t>(hermite_spline_types.size()) - 1, 1),
++		benchmark::CreateRange(1 << 5, 1 << 20, 2),
+ 	})
+-	->ArgNames({"func", "dist", "n", "type"});
++	->ArgNames({"func", "dist", "type", "n"});
+ 
+ static void BM_hermite_spline_values(benchmark::State& state) {
+ 	const auto& [func_name, lambda] = funcs_and_ints[state.range(0)].first;
+@@ -59,9 +59,9 @@ static void BM_hermite_spline_values(benchmark::State& state) {
+ }
+ BENCHMARK(BM_hermite_spline_values)
+ 	->ArgsProduct({
+-		benchmark::CreateDenseRange(0, static_cast<int64_t>(funcs_and_ints.size()) - 1, 1),
+-		benchmark::CreateDenseRange(0, static_cast<int64_t>(dists.size()) - 1, 1),
+-		{32, 1024, 16384, 262144},
++		{0},
++		{1},
++		benchmark::CreateRange(1 << 5, 1 << 20, 2),
+ 		{nn},
+ 	})
+ 	->ArgNames({"func", "dist", "n", "nn"});
+-- 
+2.55.0
+

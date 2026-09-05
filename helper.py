@@ -94,6 +94,7 @@ def configure(arch, compiler, profile):
 		'cmake',
 		'-S', str(ROOT_DIR),
 		'-B', str(directory),
+		'-DCMAKE_BUILD_TYPE=Release',
 		f'-DCMAKE_CXX_COMPILER={COMPILERS[compiler][arch]}',
 		f'-DALFI_ARCH={ARCHITECTURES[arch]['cmake_arch']}',
 		f'-DALFI_COMPILER={compiler}',
@@ -124,7 +125,7 @@ def run(arch, compiler, profile, benchmark):
 	command = [
 		*ARCHITECTURES[arch]['qemu'],
 		str(executable),
-		'--benchmark_format=console',
+		'--benchmark_format=json',
 	]
 
 	output_file = result_path(arch, compiler, profile, benchmark)

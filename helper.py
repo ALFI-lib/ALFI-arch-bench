@@ -53,12 +53,18 @@ def build_dir(arch, compiler, profile):
 	return BUILD_DIR / config_name(arch, compiler, profile)
 
 
-def benchmark_path(arch, compiler, profile):
-	return build_dir(arch, compiler, profile) / 'ALFI' / 'benches' / 'bench_barycentric'
+def benchmark_path(arch, compiler, profile, benchmark):
+	directory = build_dir(arch, compiler, profile)
+	matches = list(directory.rglob(benchmark))
+	if not matches:
+		raise FileNotFoundError(f'Benchmark executable not found: {benchmark} in {directory}')
+	if len(matches) > 1:
+		raise RuntimeError(f'Multiple benchmark executables found for {benchmark} in {directory}: ' + ', '.join(map(str, matches)))
+	return matches[0]
 
 
-def result_path(arch, compiler, profile):
-	return RESULTS_DIR / f'{config_name(arch, compiler, profile)}.txt'
+def result_path(arch, compiler, profile, benchmark):
+	return RESULTS_DIR / f'{benchmark}-{config_name(arch, compiler, profile)}.txt'
 
 
 def run_command(command, output_file=None):
@@ -95,7 +101,7 @@ def configure(arch, compiler, profile):
 	])
 
 
-def build(arch, compiler, profile):
+def build(arch, compiler, profile, benchmark):
 	directory = build_dir(arch, compiler, profile)
 
 	configure(arch, compiler, profile)
@@ -103,20 +109,25 @@ def build(arch, compiler, profile):
 	run_command([
 		'cmake',
 		'--build', str(directory),
-		'--target', 'bench_barycentric',
+		'--target', benchmark,
 		'--parallel',
 	])
 
 
-def run(arch, compiler, profile):
-	executable = benchmark_path(arch, compiler, profile)
+def run(arch, compiler, profile, benchmark):
+	try:
+		executable = benchmark_path(arch, compiler, profile, benchmark)
+	except FileNotFoundError:
+		build(arch, compiler, profile, benchmark)
+		executable = benchmark_path(arch, compiler, profile, benchmark)
 
-	if not executable.exists():
-		build(arch, compiler, profile)
+	command = [
+		*ARCHITECTURES[arch]['qemu'],
+		str(executable),
+		'--benchmark_format=console',
+	]
 
-	command = [*ARCHITECTURES[arch]['qemu'], str(executable), '--benchmark_format=console']
-
-	output_file = result_path(arch, compiler, profile)
+	output_file = result_path(arch, compiler, profile, benchmark)
 
 	run_command(command, output_file)
 
@@ -144,6 +155,12 @@ def main():
 	)
 
 	parser.add_argument(
+		'--benchmark',
+		required=True,
+		help='benchmark executable name',
+	)
+
+	parser.add_argument(
 		'--arch',
 		choices=list(ARCHITECTURES),
 	)
@@ -163,16 +180,21 @@ def main():
 	architectures = [args.arch] if args.arch else list(ARCHITECTURES)
 	compilers = [args.compiler] if args.compiler else list(COMPILERS)
 	profiles = [args.profile] if args.profile else list(PROFILES)
-	configs = [(arch, compiler, profile) for arch in architectures for compiler in compilers for profile in profiles]
+	configs = [
+		(arch, compiler, profile)
+		for arch in architectures
+		for compiler in compilers
+		for profile in profiles
+	]
 
 	for arch, compiler, profile in configs:
 		configure(arch, compiler, profile)
 
 		if args.action in {'build', 'run'}:
-			build(arch, compiler, profile)
+			build(arch, compiler, profile, args.benchmark)
 
 		if args.action == 'run':
-			run(arch, compiler, profile)
+			run(arch, compiler, profile, args.benchmark)
 
 
 if __name__ == '__main__':

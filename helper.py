@@ -64,7 +64,7 @@ def benchmark_path(arch, compiler, profile, benchmark):
 
 
 def result_path(arch, compiler, profile, benchmark):
-	return RESULTS_DIR / f'{benchmark}-{config_name(arch, compiler, profile)}.txt'
+	return RESULTS_DIR / f'{benchmark}-{config_name(arch, compiler, profile)}.json'
 
 
 def run_command(command, output_file=None):

@@ -1,4 +1,4 @@
-From 6da4570d2a0f4fcbc442cd59d1062c81f72fae94 Mon Sep 17 00:00:00 2001
+From 6f0306aa2af2e6bbd6f129496f09c7032eedccd8 Mon Sep 17 00:00:00 2001
 From: Petr Sabanov <pasabanov@murena.io>
 Date: Sun, 6 Sep 2026 02:44:02 +0300
 Subject: [PATCH] Tweaked benchmarks
@@ -6,8 +6,8 @@ Subject: [PATCH] Tweaked benchmarks
 ---
  benches/bench_data.h               |  2 --
  benches/misc/bench_barycentric.cpp | 25 +++----------------------
- benches/spline/bench_hermite.cpp   | 18 +++++++++---------
- 3 files changed, 12 insertions(+), 33 deletions(-)
+ benches/spline/bench_hermite.cpp   | 15 +++++++--------
+ 3 files changed, 10 insertions(+), 32 deletions(-)
 
 diff --git a/benches/bench_data.h b/benches/bench_data.h
 index 7e950e9..cc6f220 100644
@@ -62,21 +62,10 @@ index 6dbdfcc..5eb9d41 100644
  	})
  	->ArgNames({"func", "dist", "n", "nn"});
 diff --git a/benches/spline/bench_hermite.cpp b/benches/spline/bench_hermite.cpp
-index c52ca27..4310087 100644
+index c52ca27..369e526 100644
 --- a/benches/spline/bench_hermite.cpp
 +++ b/benches/spline/bench_hermite.cpp
-@@ -17,8 +17,8 @@ static void BM_hermite_spline(benchmark::State& state) {
- 	const auto& [func_name, lambda] = funcs_and_ints[state.range(0)].first;
- 	const auto& interval = funcs_and_ints[state.range(0)].second;
- 	const auto& dist_type = dists[state.range(1)];
--	const auto& n = state.range(2);
--	const auto& type = hermite_spline_types[state.range(3)];
-+	const auto& type = hermite_spline_types[state.range(2)];
-+	const auto& n = state.range(3);
- 	const std::vector<double> X = of_type<double>(dist_type, n, interval.first, interval.second);
- 	const std::vector<double> Y = apply_func(X, lambda);
- 	alfi::spline::HermiteSpline<> spline;
-@@ -30,12 +30,12 @@ static void BM_hermite_spline(benchmark::State& state) {
+@@ -30,9 +30,9 @@ static void BM_hermite_spline(benchmark::State& state) {
  }
  BENCHMARK(BM_hermite_spline)
  	->ArgsProduct({
@@ -85,15 +74,24 @@ index c52ca27..4310087 100644
 -		{32, 1024, 16384, 262144},
 +		{0},
 +		{1},
- 		benchmark::CreateDenseRange(0, static_cast<int64_t>(hermite_spline_types.size()) - 1, 1),
 +		benchmark::CreateRange(1 << 5, 1 << 20, 2),
+ 		benchmark::CreateDenseRange(0, static_cast<int64_t>(hermite_spline_types.size()) - 1, 1),
  	})
--	->ArgNames({"func", "dist", "n", "type"});
-+	->ArgNames({"func", "dist", "type", "n"});
- 
- static void BM_hermite_spline_values(benchmark::State& state) {
- 	const auto& [func_name, lambda] = funcs_and_ints[state.range(0)].first;
-@@ -59,9 +59,9 @@ static void BM_hermite_spline_values(benchmark::State& state) {
+ 	->ArgNames({"func", "dist", "n", "type"});
+@@ -43,11 +43,10 @@ static void BM_hermite_spline_values(benchmark::State& state) {
+ 	const auto& dist_type = dists[state.range(1)];
+ 	const auto& n = state.range(2);
+ 	const auto& nn = state.range(3);
+-	const auto& type = hermite_spline_types[state.range(4)];
+ 	const std::vector<double> X = of_type<double>(dist_type, n, interval.first, interval.second);
+ 	const std::vector<double> Y = apply_func(X, lambda);
+ 	const std::vector<double> xx = of_type<double>(alfi::dist::Type::UNIFORM, nn, interval.first, interval.second);
+-	const alfi::spline::HermiteSpline<> spline(X, Y, type);
++	const alfi::spline::HermiteSpline<> spline(X, Y);
+ 	std::vector<double> result;
+ 	for (auto _ : state) {
+ 		result = spline.eval(xx);
+@@ -59,9 +58,9 @@ static void BM_hermite_spline_values(benchmark::State& state) {
  }
  BENCHMARK(BM_hermite_spline_values)
  	->ArgsProduct({

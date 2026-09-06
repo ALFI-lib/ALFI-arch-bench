@@ -1,72 +1,239 @@
-2026-09-06T00:52:17+03:00
-Running ALFI-arch-bench/build/x86_64-gcc-O0/ALFI/benches/bench_barycentric
-Run on (32 X 2985.84 MHz CPU s)
-CPU Caches:
-  L1 Data 32 KiB (x16)
-  L1 Instruction 32 KiB (x16)
-  L2 Unified 1024 KiB (x16)
-  L3 Unified 98304 KiB (x2)
-Load Average: 0.42, 0.41, 0.66
-***WARNING*** Library was built as DEBUG. Timings may be affected.
----------------------------------------------------------------------------------------------------------------------
-Benchmark                                                           Time             CPU   Iterations UserCounters...
----------------------------------------------------------------------------------------------------------------------
-BM_barycentric/func:0/dist:0/n:8/nn:10000                    29166640 ns     29165375 ns           25 1.ME=846.043u 2.MAE=1.32469m 3.RMSE=2.26732m 4.Variance=4.42539u
-BM_barycentric/func:1/dist:0/n:8/nn:10000                    29082366 ns     29078073 ns           23 1.ME=1.06206a 2.MAE=327.897u 3.RMSE=603.688u 4.Variance=364.476n
-BM_barycentric/func:2/dist:0/n:8/nn:10000                    29041311 ns     29038591 ns           24 1.ME=713.831u 2.MAE=1.16765m 3.RMSE=1.87202m 4.Variance=2.99519u
-BM_barycentric/func:3/dist:0/n:8/nn:10000                    29081650 ns     29079007 ns           24 1.ME=-2.31458m 2.MAE=0.0206072 3.RMSE=0.0268341 4.Variance=714.784u
-BM_barycentric/func:4/dist:0/n:8/nn:10000                    28780913 ns     28693822 ns           24 1.ME=-0.94612 2.MAE=6.32076 3.RMSE=8.85616 4.Variance=77.5443
-BM_barycentric/func:0/dist:1/n:8/nn:10000                    28517887 ns     28514243 ns           24 1.ME=27.2135u 2.MAE=1.0168m 3.RMSE=1.15011m 4.Variance=1.32214u
-BM_barycentric/func:1/dist:1/n:8/nn:10000                    29116928 ns     29113812 ns           24 1.ME=-916.216z 2.MAE=161.284u 3.RMSE=205.939u 4.Variance=42.4151n
-BM_barycentric/func:2/dist:1/n:8/nn:10000                    29122923 ns     29117281 ns           24 1.ME=20.4647u 2.MAE=901.276u 3.RMSE=1.00228m 4.Variance=1.00425u
-BM_barycentric/func:3/dist:1/n:8/nn:10000                    29127848 ns     29126220 ns           24 1.ME=6.47368m 2.MAE=0.0172065 3.RMSE=0.0300548 4.Variance=861.468u
-BM_barycentric/func:4/dist:1/n:8/nn:10000                    29112914 ns     29109278 ns           24 1.ME=1.62109 2.MAE=5.03805 3.RMSE=6.72778 4.Variance=42.6394
-BM_barycentric/func:0/dist:2/n:8/nn:10000                    29006462 ns     28960628 ns           24 1.ME=-23.0675u 2.MAE=1.62724m 3.RMSE=1.88981m 4.Variance=3.57121u
-BM_barycentric/func:1/dist:2/n:8/nn:10000                    28228318 ns     28223877 ns           24 1.ME=-14.4685a 2.MAE=211.934u 3.RMSE=259.819u 4.Variance=67.5129n
-BM_barycentric/func:2/dist:2/n:8/nn:10000                    29092679 ns     29089177 ns           24 1.ME=-15.6694u 2.MAE=1.3921m 3.RMSE=1.61713m 4.Variance=2.61513u
-BM_barycentric/func:3/dist:2/n:8/nn:10000                    29082309 ns     29078068 ns           24 1.ME=8.62601m 2.MAE=0.0196259 3.RMSE=0.035242 4.Variance=1.16771m
-BM_barycentric/func:4/dist:2/n:8/nn:10000                    29118784 ns     29117515 ns           24 1.ME=0.211915 2.MAE=4.30648 3.RMSE=5.62082 4.Variance=31.5518
-BM_barycentric/func:0/dist:0/n:16/nn:10000                   57604310 ns     57599275 ns           12 1.ME=206.642p 2.MAE=251.228p 3.RMSE=736.182p 4.Variance=499.313z
-BM_barycentric/func:1/dist:0/n:16/nn:10000                   57564025 ns     57562990 ns           12 1.ME=-168.628a 2.MAE=72.0019p 3.RMSE=213.085p 4.Variance=45.4098z
-BM_barycentric/func:2/dist:0/n:16/nn:10000                   55550137 ns     55545112 ns           12 1.ME=338.853p 2.MAE=413.266p 3.RMSE=1.19158n 4.Variance=1.30518a
-BM_barycentric/func:3/dist:0/n:16/nn:10000                   57671027 ns     57663371 ns           12 1.ME=-0.0330505 2.MAE=0.0468298 3.RMSE=0.121107 4.Variance=0.013576
-BM_barycentric/func:4/dist:0/n:16/nn:10000                   57593032 ns     57589446 ns           12 1.ME=-11.2634 2.MAE=16.4239 3.RMSE=49.5045 4.Variance=2.32406k
-BM_barycentric/func:0/dist:1/n:16/nn:10000                   57602343 ns     57599453 ns           12 1.ME=277.825f 2.MAE=45.3592p 3.RMSE=50.6466p 4.Variance=2.56526z
-BM_barycentric/func:1/dist:1/n:16/nn:10000                   57633776 ns     57628220 ns           12 1.ME=4.22951a 2.MAE=6.76562p 3.RMSE=8.66165p 4.Variance=75.0316y
-BM_barycentric/func:2/dist:1/n:16/nn:10000                   57612119 ns     57608969 ns           12 1.ME=426.237f 2.MAE=72.6169p 3.RMSE=80.6719p 4.Variance=6.50843z
-BM_barycentric/func:3/dist:1/n:16/nn:10000                   57617844 ns     57612040 ns           12 1.ME=1.61124m 2.MAE=4.50428m 3.RMSE=0.0103992 4.Variance=105.558u
-BM_barycentric/func:4/dist:1/n:16/nn:10000                   57636781 ns     57636658 ns           12 1.ME=0.203185 2.MAE=2.78234 3.RMSE=3.54056 4.Variance=12.4955
-BM_barycentric/func:0/dist:2/n:16/nn:10000                   57607355 ns     57604357 ns           12 1.ME=-88.429f 2.MAE=71.6304p 3.RMSE=82.8497p 4.Variance=6.86476z
-BM_barycentric/func:1/dist:2/n:16/nn:10000                   57618991 ns     57614165 ns           12 1.ME=-5.83961a 2.MAE=8.98163p 3.RMSE=10.9433p 4.Variance=119.767y
-BM_barycentric/func:2/dist:2/n:16/nn:10000                   57556441 ns     57553740 ns           12 1.ME=-133.391f 2.MAE=113.5p 3.RMSE=131.281p 4.Variance=17.2365z
-BM_barycentric/func:3/dist:2/n:16/nn:10000                   57609302 ns     57607147 ns           12 1.ME=1.83732m 2.MAE=4.83998m 3.RMSE=0.0113351 4.Variance=125.122u
-BM_barycentric/func:4/dist:2/n:16/nn:10000                   57606010 ns     57602063 ns           12 1.ME=0.240661 2.MAE=2.96828 3.RMSE=3.87597 4.Variance=14.9667
-BM_barycentric/func:0/dist:0/n:32/nn:10000                  114619250 ns    114613169 ns            6 1.ME=38.6406p 2.MAE=57.5387p 3.RMSE=429.176p 4.Variance=182.717z
-BM_barycentric/func:1/dist:0/n:32/nn:10000                  114714220 ns    114703083 ns            6 1.ME=-8.68324p 2.MAE=11.2052p 3.RMSE=64.3944p 4.Variance=4.07165z
-BM_barycentric/func:2/dist:0/n:32/nn:10000                  114552963 ns    114550833 ns            6 1.ME=6.14502p 2.MAE=13.21p 3.RMSE=74.9317p 4.Variance=5.57756z
-BM_barycentric/func:3/dist:0/n:32/nn:10000                  112850632 ns    112841361 ns            6 1.ME=-61.593 2.MAE=68.2112 3.RMSE=307.196 4.Variance=90.5849k
-BM_barycentric/func:4/dist:0/n:32/nn:10000                  114451899 ns    114448453 ns            6 1.ME=-7.41463k 2.MAE=8.21239k 3.RMSE=36.9806k 4.Variance=1.31272G
-BM_barycentric/func:0/dist:1/n:32/nn:10000                  114694622 ns    114689101 ns            6 1.ME=117.044a 2.MAE=651.595a 3.RMSE=1.20577f 4.Variance=1.44033e-30
-BM_barycentric/func:1/dist:1/n:32/nn:10000                  114456419 ns    114441636 ns            6 1.ME=-2.78314a 2.MAE=148.127a 3.RMSE=208.68a 4.Variance=4.35441e-32
-BM_barycentric/func:2/dist:1/n:32/nn:10000                  114515777 ns    114511911 ns            6 1.ME=-4.05213a 2.MAE=144.559a 3.RMSE=205.034a 4.Variance=4.20268e-32
-BM_barycentric/func:3/dist:1/n:32/nn:10000                  114604877 ns    114598576 ns            6 1.ME=401.94u 2.MAE=1.1613m 3.RMSE=3.65619m 4.Variance=13.2075u
-BM_barycentric/func:4/dist:1/n:32/nn:10000                  114582370 ns    114576697 ns            6 1.ME=0.0422936 2.MAE=2.50384 3.RMSE=3.15103 4.Variance=9.92822
-BM_barycentric/func:0/dist:2/n:32/nn:10000                  114564277 ns    114558441 ns            6 1.ME=-19.6454a 2.MAE=736.507a 3.RMSE=1.24775f 4.Variance=1.55666e-30
-BM_barycentric/func:1/dist:2/n:32/nn:10000                  114543372 ns    114533127 ns            6 1.ME=-1.36464a 2.MAE=141.851a 3.RMSE=199.942a 4.Variance=3.99791e-32
-BM_barycentric/func:2/dist:2/n:32/nn:10000                  114449261 ns    114444974 ns            6 1.ME=-5.5794a 2.MAE=144.227a 3.RMSE=205.373a 4.Variance=4.21513e-32
-BM_barycentric/func:3/dist:2/n:32/nn:10000                  114473987 ns    114464293 ns            6 1.ME=428.397u 2.MAE=1.20598m 3.RMSE=3.82415m 4.Variance=14.4421u
-BM_barycentric/func:4/dist:2/n:32/nn:10000                  114582416 ns    114577527 ns            6 1.ME=0.045238 2.MAE=2.14434 3.RMSE=2.66477 4.Variance=7.09966
-BM_barycentric_chebyshev/func:0/dist:1/n:1024/nn:10000     3639732932 ns   3639480168 ns            1 1.ME=-20.2567a 2.MAE=2.64011f 3.RMSE=5.05903f 4.Variance=2.55959e-29
-BM_barycentric_chebyshev/func:1/dist:1/n:1024/nn:10000     3641218967 ns   3641011018 ns            1 1.ME=7.92906a 2.MAE=748.194a 3.RMSE=1.07601f 4.Variance=1.15785e-30
-BM_barycentric_chebyshev/func:2/dist:1/n:1024/nn:10000     3641069341 ns   3640872328 ns            1 1.ME=-15.6932a 2.MAE=738.298a 3.RMSE=1.06688f 4.Variance=1.13809e-30
-BM_barycentric_chebyshev/func:3/dist:1/n:1024/nn:10000     3640934976 ns   3640753768 ns            1 1.ME=390.477n 2.MAE=1.17318u 3.RMSE=20.0787u 4.Variance=403.043p
-BM_barycentric_chebyshev/func:4/dist:1/n:1024/nn:10000     3643810353 ns   3643621097 ns            1 1.ME=39.0496u 2.MAE=117.338u 3.RMSE=2.00808m 4.Variance=4.03125u
-BM_barycentric_chebyshev/func:0/dist:1/n:16384/nn:10000    5.6108e+10 ns   5.6105e+10 ns            1 1.ME=81.4203a 2.MAE=10.4742f 3.RMSE=20.0527f 4.Variance=4.02143e-28
-BM_barycentric_chebyshev/func:1/dist:1/n:16384/nn:10000    5.8235e+10 ns   5.8232e+10 ns            1 1.ME=17.4975a 2.MAE=2.93916f 3.RMSE=4.23681f 4.Variance=1.7952e-29
-BM_barycentric_chebyshev/func:2/dist:1/n:16384/nn:10000    5.8269e+10 ns   5.8266e+10 ns            1 1.ME=-24.1941a 2.MAE=2.92222f 3.RMSE=4.25688f 4.Variance=1.81223e-29
-BM_barycentric_chebyshev/func:3/dist:1/n:16384/nn:10000    5.8290e+10 ns   5.8287e+10 ns            1 1.ME=-135.02p 2.MAE=1.14674n 3.RMSE=26.1562n 4.Variance=684.199a
-BM_barycentric_chebyshev/func:4/dist:1/n:16384/nn:10000    5.8265e+10 ns   5.8262e+10 ns            1 1.ME=-13.502n 2.MAE=114.674n 3.RMSE=2.61563u 4.Variance=6.842p
-BM_barycentric_chebyshev/func:0/dist:1/n:262144/nn:10000   8.9524e+11 ns   8.9519e+11 ns            1 1.ME=-197.658a 2.MAE=42.1744f 3.RMSE=80.4637f 4.Variance=6.47502e-27
-BM_barycentric_chebyshev/func:1/dist:1/n:262144/nn:10000   9.1114e+11 ns   9.1109e+11 ns            1 1.ME=-8.66608a 2.MAE=11.984f 3.RMSE=17.2475f 4.Variance=2.97508e-28
-BM_barycentric_chebyshev/func:2/dist:1/n:262144/nn:10000   9.0296e+11 ns   9.0291e+11 ns            1 1.ME=-258.724a 2.MAE=11.7076f 3.RMSE=17.0025f 4.Variance=2.89046e-28
-Прерван спустя 58m 19s
+{
+  "context": {
+    "date": "2026-09-06T03:03:33+03:00",
+    "executable": "ALFI-arch-bench/build/x86_64-gcc-O0/ALFI/benches/bench_barycentric",
+    "num_cpus": 32,
+    "mhz_per_cpu": 4069,
+    "cpu_scaling_enabled": false,
+    "caches": [
+      {
+        "type": "Data",
+        "level": 1,
+        "size": 32768,
+        "num_sharing": 2
+      },
+      {
+        "type": "Instruction",
+        "level": 1,
+        "size": 32768,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 2,
+        "size": 1048576,
+        "num_sharing": 2
+      },
+      {
+        "type": "Unified",
+        "level": 3,
+        "size": 100663296,
+        "num_sharing": 16
+      }
+    ],
+    "load_avg": [0.686523,0.967773,0.902832],
+    "library_version": "v1.9.1",
+    "library_build_type": "debug",
+    "json_schema_version": 1
+  },
+  "benchmarks": [
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:32/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 0,
+      "run_name": "BM_barycentric/func:0/dist:1/n:32/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 6,
+      "real_time": 1.0822844683389121e+08,
+      "cpu_time": 1.0822571900000000e+08,
+      "time_unit": "ns",
+      "1.ME": -2.7831366275486515e-18,
+      "2.MAE": 1.4812668285374402e-16,
+      "3.RMSE": 2.0868026453895285e-16,
+      "4.Variance": 4.3544061364699463e-32
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:64/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 1,
+      "run_name": "BM_barycentric/func:0/dist:1/n:64/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 3,
+      "real_time": 2.2526912233418748e+08,
+      "cpu_time": 2.2524452933333337e+08,
+      "time_unit": "ns",
+      "1.ME": -4.5748628287860526e-18,
+      "2.MAE": 1.9233351616657978e-16,
+      "3.RMSE": 2.7511610021855099e-16,
+      "4.Variance": 7.5675506780256456e-32
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:128/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 2,
+      "run_name": "BM_barycentric/func:0/dist:1/n:128/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 2,
+      "real_time": 4.4756071250048989e+08,
+      "cpu_time": 4.4749616750000000e+08,
+      "time_unit": "ns",
+      "1.ME": 2.5559586895297311e-19,
+      "2.MAE": 2.6963836161161663e-16,
+      "3.RMSE": 3.8540896754402472e-16,
+      "4.Variance": 1.4855486242036876e-31
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:256/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 3,
+      "run_name": "BM_barycentric/func:0/dist:1/n:256/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 9.0031483799975836e+08,
+      "cpu_time": 9.0022184399999988e+08,
+      "time_unit": "ns",
+      "1.ME": -2.6260903153157266e-18,
+      "2.MAE": 3.7292697228696819e-16,
+      "3.RMSE": 5.3653633589376728e-16,
+      "4.Variance": 2.8789313269723578e-31
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:512/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 4,
+      "run_name": "BM_barycentric/func:0/dist:1/n:512/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 1.7995668879993901e+09,
+      "cpu_time": 1.7993696390000000e+09,
+      "time_unit": "ns",
+      "1.ME": 9.7091214447406523e-18,
+      "2.MAE": 5.3342750755405672e-16,
+      "3.RMSE": 7.6723474779856677e-16,
+      "4.Variance": 5.8861375256554623e-31
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:1024/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 5,
+      "run_name": "BM_barycentric/func:0/dist:1/n:1024/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 3.5991656700025487e+09,
+      "cpu_time": 3.5989317379999990e+09,
+      "time_unit": "ns",
+      "1.ME": 7.9290603208971623e-18,
+      "2.MAE": 7.4819362835697576e-16,
+      "3.RMSE": 1.0760080904402302e-15,
+      "4.Variance": 1.1578463253278082e-30
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:2048/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 6,
+      "run_name": "BM_barycentric/func:0/dist:1/n:2048/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 6.8978748650006313e+09,
+      "cpu_time": 6.8975109570000000e+09,
+      "time_unit": "ns",
+      "1.ME": 1.9735600868590699e-19,
+      "2.MAE": 1.0664748069148128e-15,
+      "3.RMSE": 1.5297135146784358e-15,
+      "4.Variance": 2.3402574237828049e-30
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:4096/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 7,
+      "run_name": "BM_barycentric/func:0/dist:1/n:4096/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 1.4395500735998213e+10,
+      "cpu_time": 1.4394671251000002e+10,
+      "time_unit": "ns",
+      "1.ME": 1.3465462703365610e-17,
+      "2.MAE": 1.5022309425756855e-15,
+      "3.RMSE": 2.1730455933584535e-15,
+      "4.Variance": 4.7224180739362984e-30
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:8192/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 8,
+      "run_name": "BM_barycentric/func:0/dist:1/n:8192/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 2.7591721418000816e+10,
+      "cpu_time": 2.7590225581000004e+10,
+      "time_unit": "ns",
+      "1.ME": 2.8590767228440824e-17,
+      "2.MAE": 2.0804350882040761e-15,
+      "3.RMSE": 3.0096574551197398e-15,
+      "4.Variance": 9.0581263778249488e-30
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:16384/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 9,
+      "run_name": "BM_barycentric/func:0/dist:1/n:16384/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 5.5207514759000336e+10,
+      "cpu_time": 5.5204613407000000e+10,
+      "time_unit": "ns",
+      "1.ME": 1.7497483777299932e-17,
+      "2.MAE": 2.9391637780916405e-15,
+      "3.RMSE": 4.2368097579616279e-15,
+      "4.Variance": 1.7952045967814982e-29
+    },
+    {
+      "name": "BM_barycentric/func:0/dist:1/n:32768/nn:10000",
+      "family_index": 0,
+      "per_family_instance_index": 10,
+      "run_name": "BM_barycentric/func:0/dist:1/n:32768/nn:10000",
+      "run_type": "iteration",
+      "repetitions": 1,
+      "repetition_index": 0,
+      "threads": 1,
+      "iterations": 1,
+      "real_time": 1.1034264422399792e+11,
+      "cpu_time": 1.1033682277900000e+11,
+      "time_unit": "ns",
+      "1.ME": -9.5361505114646130e-18,
+      "2.MAE": 4.1952702219187708e-15,
+      "3.RMSE": 6.0519421164922715e-15,
+      "4.Variance": 3.6629575400746447e-29
+    }
+  ]
+}
